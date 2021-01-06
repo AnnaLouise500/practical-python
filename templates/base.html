@@ -1,0 +1,20 @@
+<!DOCTYPE html> <!--this entire html file is a template that gets content injected into it from the other html files within the block content section below-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Flask</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            <li><a href="{{ url_for('careers') }}">Careers</a></li>
+        </ul>
+    </nav>
+    {% block content %}
+    {% endblock %} <!--creates a block of space into which we can inject content from other pages "content" is the name, can be changed-->
+</body>
+</html>
