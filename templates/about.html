@@ -1,4 +1,57 @@
 {% extends "base.html" %} <!--doctype must be declared first warning is fine as long as the doctype is declared on the html doc which is being injected i.e. base.html-->
 {% block content %}
-    <h2>About Page</h2>
+
+   
+
+    <h2>{{ page_title }}</h2>
+    <p>
+        World of Warcraft (WoW) is a massively multiplayer online role-playing game (MMORPG) released in 2004 by Blizzard
+        Entertainment. It is the fourth released game that is set in the Warcraft fantasy universe.[3] World of Warcraft takes
+        place within the Warcraft world of Azeroth, approximately four years after the events at the conclusion of Blizzard's
+        previous Warcraft release, Warcraft III: The Frozen Throne.[4] The game was announced in 2001, and was released for the
+        10th anniversary of the Warcraft franchise on November 23, 2004. Since launch, World of Warcraft has had eight major
+        expansion packs produced for it: The Burning Crusade, Wrath of the Lich King, Cataclysm, Mists of Pandaria, Warlords of
+        Draenor, Legion, Battle for Azeroth, and Shadowlands.
+        
+        World of Warcraft was the world's most popular MMORPG by player count of nearly 10 million in 2009.[5][6] The game had a
+        total of over a hundred million registered accounts by 2014.[7] By 2017, the game had grossed over $9.23 billion in
+        revenue, making it one of the highest-grossing video game franchises of all time. At BlizzCon 2017, a vanilla version of
+        the game titled World of Warcraft Classic was announced, which planned to provide a way to experience the base game
+        before any of its expansions launched. It was released in August 2019
+    </p>
+
+    {% for member in company %}
+    
+        <div class="row featurette">
+        
+            {% if loop.index % 2 != 0 %}
+        
+            <div class="col-md-7">
+                <h3>{{ loop.index }}. {{ member.name }}</h3>
+                <p>{{ member.description }}</p>
+            </div>
+            <div class="col-md-5">
+                <img src="{{ member.image_source }}" alt="Member Image" class="featurette-image image-responsive">
+            </div>
+        
+            {% else %}
+            <div class="col-md-5">
+                <img src="{{ member.image_source }}" alt="Member Image" class="featurette-image image-responsive">
+            </div>
+            <div class="col-md-7">
+                <h3>{{ loop.index }}. {{ member.name }}</h3>
+                <p>{{ member.description }}</p>
+            </div>
+            
+            {% endif %}
+        </div>
+
+        {% if loop.index != loop.length %}
+
+            <hr class="featurette-divider">
+
+        {% endif %}
+
+    {% endfor %}
+
 {% endblock %}
