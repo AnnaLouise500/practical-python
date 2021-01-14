@@ -12,3 +12,4 @@
 4) gitpod /workspace/practical-python/static $ ls
 5) gitpod /workspace/practical-python/static $ unzip gh-pages.zip
 6) make sure all folders css, img etc are directly within the static folder - not in any sub folders
+
