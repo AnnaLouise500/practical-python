@@ -1,6 +1,9 @@
-import os
 import json
-from flask import Flask, render_template
+import os
+from flask import Flask, render_template, request, flash
+if os.path.exists("env.py"):
+    import env
+
 
 app = Flask(__name__)
 
@@ -30,8 +33,12 @@ def about_member(member_name):
     return render_template("member.html", member=member)
 
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
+# need to add this if want to do any forms within this HTML page
 def contact():
+    if request.method == "POST":
+        flash("Thanks {}, we have received your message".format(
+            request.form.get("name")))
     return render_template("contact.html", page_title="Contact")
 
 

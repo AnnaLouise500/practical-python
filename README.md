@@ -13,3 +13,5 @@
 5) gitpod /workspace/practical-python/static $ unzip gh-pages.zip
 6) make sure all folders css, img etc are directly within the static folder - not in any sub folders
 
+#3
+1) POST vs GET retrieve from the server vs send to the server
